@@ -1,3 +1,0 @@
-This new branch Test
-This is next update
-Hi This is the first file for Jenkins Training
