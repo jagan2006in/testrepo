@@ -13,6 +13,10 @@ provider "aws" {
   region = "ap-south-1"
 }
 
+variable "project_name" {
+	type = string 
+   default = "ibm-terraform-bucket-jagan"
+}
 
 # Create the bucket
 
