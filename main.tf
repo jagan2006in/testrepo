@@ -1,20 +1,27 @@
 terraform {
   required_providers {
-    docker = {
-      source = "kreuzwerker/docker"
-      version = "2.11.0"
+    aws = {
+      source = "hashicorp/aws"
+      version = "3.47.0"
     }
   }
 }
 
-# Download the ghost:latest docker_image "image_id" to the system using a Terraform resource
+#----------storage/main.tf-------
 
-resource "docker_image" "nginx_ibm_image" {
-  name = "nginx:latest"
+provider "aws" {
+  region = "ap-south-1"
 }
 
-resource "docker_container" "nginx_ibm_container" {
-  name  = "nginxcontainer"
-  image =  docker_image.nginx_ibm_image.latest
- 
+
+# Create the bucket
+
+resource "aws_s3_bucket" "tf_code" {
+  bucket        = random_id.tf_bucket_id.dec
+  acl           = "private"
+  force_destroy = true
+
+  tags = {
+    Name = "tf_bucket"
+  }
 }
