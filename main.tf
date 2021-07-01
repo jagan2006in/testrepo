@@ -22,6 +22,7 @@ variable "project_name" {
 
 resource "aws_s3_bucket" "tf_code" {
   #bucket        = random_id.tf_bucket_id.dec
+  bucket        = "ibm-terraform-1st-jul"
   acl           = "private"
   force_destroy = true
 
