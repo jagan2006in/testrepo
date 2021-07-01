@@ -21,7 +21,7 @@ variable "project_name" {
 # Create the bucket
 
 resource "aws_s3_bucket" "tf_code" {
-  bucket        = random_id.tf_bucket_id.dec
+  #bucket        = random_id.tf_bucket_id.dec
   acl           = "private"
   force_destroy = true
 
